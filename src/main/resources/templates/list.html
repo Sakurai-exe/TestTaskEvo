@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+  <title>Index Page</title>
+</head>
+<body>
+ <form action="/users" class="form-inline">
+    <div class="form-group mb-2">
+      <input type="text" class="form-control" name="name" placeholder="First name of User" />
+      <input type="submit" value="Search"  class="btn btn-primary"/><br>
+    </div>
+  </form><br>
+
+
+
+  <div class="card">
+    <div class="card card-body">
+      <table width="100%" border="5" cellpadding="4">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Patronymic</th>
+          <th>Born Date</th>
+          <th>Edit Option</th>
+          <th>Instant deletion User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="left" valign="top" th:each="user : ${users}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.surname}"></td>
+          <td th:text="${user.patronymic}"></td>
+          <td th:text="${user.borndate}"></td>
+          <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>
+          <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+<p><a href="/user-create">Create new user</a></p>
+
+</body>
+</html>

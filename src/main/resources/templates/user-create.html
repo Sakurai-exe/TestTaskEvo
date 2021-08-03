@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml" xmlns:fmt="">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+    <label for="firstName">First name</label>
+    <input type="text" th:field="*{name}" id="firstName" placeholder="First Name"><br>
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{surname}" id="lastName" placeholder="Last Name"><br>
+
+    <label for="patronymic">Patronymic</label>
+    <input type="text" th:field="*{patronymic}" id="patronymic" placeholder="Patronymic"><br>
+
+    <label for="borndate">Born Date</label>
+    <input type="date"  value="2012-06-01" th:field="*{borndate}" id="borndate" placeholder="Born Date"><br>
+
+
+    <input type="submit" value="Create User">
+</form>
+</body>
+</html>
